@@ -19,7 +19,7 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  silverblue-base-build:
+  bazzite-base-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -28,16 +28,16 @@ jobs:
       - name: Build container image
         uses: redhat-actions/buildah-build@v2
         with:
-          context: "silverblue-base"
-          containerfiles: "silverblue-base/Containerfile"
-          image: silverblue-base
+          context: "bazzite-base"
+          containerfiles: "bazzite-base/Containerfile"
+          image: bazzite-base
           layers: false
           oci: true
 
       - name: Push to ghcr.io
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: silverblue-base
+          image: bazzite-base
           tags: "latest"
           registry: ${{ env.IMAGE_REGISTRY }}
           username: ${{ env.REGISTRY_USER }}
