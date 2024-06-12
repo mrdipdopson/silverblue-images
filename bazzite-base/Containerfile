@@ -1,12 +1,5 @@
 FROM ghcr.io/ublue-os/silverblue-main:latest
 
-# Install rpmfusion repos
-RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm && \
-    rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
-    # cleanup and verification stage
-    rm -vrf /var && \
-    ostree container commit
-
 # Install the basics
 RUN rpm-ostree install \
     distrobox iotop screen vim gnome-tweak-tool neofetch vlc htop rclone fio fuse-sshfs nc \
