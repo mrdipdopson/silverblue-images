@@ -2,8 +2,8 @@ FROM ghcr.io/ublue-os/silverblue-main:latest
 
 # Install the basics
 RUN rpm-ostree install \
-    distrobox iotop screen vim gnome-tweak-tool neofetch vlc htop rclone fio fuse-sshfs nc \
-    podman-docker docker-compose easyeffects android-tools wireguard-tools iperf3 ansible && \
+    distrobox iotop screen vim gnome-tweak-tool neofetch vlc htop rclone fio fuse-sshfs nc fish \
+    podman-docker docker-compose easyeffects android-tools wireguard-tools iperf3 ansible gcc && \
     ln -vsf /usr/bin/ncat /usr/bin/nc && \
     # cleanup and verification stage
     rm -vrf /var && \
